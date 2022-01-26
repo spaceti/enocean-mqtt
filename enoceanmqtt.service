@@ -7,8 +7,8 @@ Type=simple
 ExecStart=/usr/local/bin/enoceanmqtt
 Restart=always
 RestartSec=300
-WorkingDirectory=/home/pi/enoceanmqtt
-User=pi
+WorkingDirectory=/root/enocean-mqtt
+User=root
 
 [Install]
 WantedBy=multi-user.target
