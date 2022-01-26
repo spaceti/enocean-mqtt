@@ -3,8 +3,8 @@
 enocean_port    = /dev/enocean
 log_packets     = 1
 
-mqtt_host       = localhost
-mqtt_port       = 1883
+mqtt_host       = a19b6g93aj51sz-ats.iot.eu-central-1.amazonaws.com
+mqtt_port       = 8883
 mqtt_client_id  = enocean   # ensure that this is unique if you use multiple clients
 
 ## setting mqtt_keepalive = 0 sets the timeout to infinitive but does not work reliably
@@ -15,7 +15,7 @@ mqtt_keepalive  = 60
 mqtt_prefix     = enocean/
 
 ## publish received packets as single MQTT message with a JSON payload
-# mqtt_publish_json = true
+mqtt_publish_json = true
 
 ## optionally also set mqtt_user and mqtt_pwd (don't use quotes).
 # mqtt_user       = mqtt
@@ -32,16 +32,24 @@ mqtt_prefix     = enocean/
 ## mqtt_ssl_insecure: Disable verification of the broker's certificate.
 ##     WARNING: do NOT use on production systems as this is insecure!
 ##
-# mqtt_ssl          = true
-# mqtt_ssl_ca_certs = /path/CA_files_merged.pem
-# mqtt_ssl_certfile = /path/client_cert.pem
-# mqtt_ssl_keyfile  = /path/client_key.pem
+mqtt_ssl          = true
+mqtt_ssl_ca_certs = /root/enocean-certificates/AmazonRootCA1.pem
+mqtt_ssl_certfile = /root/enocean-certificates/f1f01c3c33-certificate.pem.crt
+mqtt_ssl_keyfile  = /root/enocean-certificates/f1f01c3c33-private.pem.key
 # mqtt_ssl_insecure = true
 
 ## Enable MQTT debugging. Requires --debug on the command line.
 # mqtt_debug      = true
 
 ## all other sections define the sensors to monitor
+
+[0x042107C5]
+address         = 0x042107C5
+rorg            = 0xa5
+func            = 0x09
+type            = 0x04
+log_learn       = 1
+publish_rssi    = 1
 
 [switch]
 address         = 0xfefee192
