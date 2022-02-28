@@ -15,7 +15,7 @@ from enoceanmqtt.communicator import Communicator
 conf = {
     'debug': False,
     'config': ['/etc/enoceanmqtt.conf'],
-    'logfile': os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'enoceanmqtt.log')
+    'logfile': '/tmp/enoceanmqtt.log'
 }
 
 
